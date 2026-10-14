@@ -1,0 +1,11 @@
+# Lean dependencies for DEPLOYING THE DASHBOARD ONLY (Streamlit Community Cloud reads this file).
+# The pipeline (DuckDB etc.) is NOT needed on the server: it only reads the committed result files.
+# IMPORTANT: pin scikit-learn to the version that trained the model (see run_manifest.json -> environment.packages),
+# otherwise the Predict tab may fail to load the saved model.
+streamlit>=1.40,<2
+pandas>=2.1,<4
+numpy>=1.26,<3
+pyarrow>=14
+requests>=2.31,<3
+scikit-learn>=1.3,<2
+joblib>=1.3,<2

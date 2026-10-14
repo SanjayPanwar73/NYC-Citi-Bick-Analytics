@@ -1,5 +1,5 @@
 # data - never commit raw or processed trip data
-data/
+/data/
 duckdb_tmp/
 *.parquet
 *.joblib
@@ -16,3 +16,6 @@ venv/
 # synthetic-run reports are test artifacts, not results
 reports/sample/
 # keep: reports/real/**/figures and *.md (portfolio material); aggregates (*.csv/json) are small
+# --- deployable dashboard snapshot: small aggregate outputs + trained model of a REAL run may be committed ---
+!reports/real/**/*.parquet
+!reports/real/**/*.joblib

@@ -1,0 +1,812 @@
+{
+  "meta": {
+    "mode": "real",
+    "is_synthetic": false,
+    "run": "2024-06_2024-06",
+    "n_folds": 4,
+    "validation": "rolling-origin expanding window, 50% initial train"
+  },
+  "duration_model": {
+    "target": "trip_duration_min (back-transformed from log1p)",
+    "n_rows_sampled": 1000000,
+    "folds": [
+      {
+        "fold": 1,
+        "test_start": "2024-06-16 00:00:00",
+        "test_end": "2024-06-19 00:00:00",
+        "n_train": 510078,
+        "n_test": 133574
+      },
+      {
+        "fold": 2,
+        "test_start": "2024-06-20 00:00:00",
+        "test_end": "2024-06-23 00:00:00",
+        "n_train": 643652,
+        "n_test": 128371
+      },
+      {
+        "fold": 3,
+        "test_start": "2024-06-24 00:00:00",
+        "test_end": "2024-06-27 00:00:00",
+        "n_train": 772023,
+        "n_test": 138386
+      },
+      {
+        "fold": 4,
+        "test_start": "2024-06-28 00:00:00",
+        "test_end": "2024-06-30 00:00:00",
+        "n_train": 910409,
+        "n_test": 89591
+      }
+    ],
+    "summary": {
+      "Baseline: distance x median pace": {
+        "MAE": {
+          "mean": 5.0260754366261775,
+          "std": 0.40636910983801067
+        },
+        "RMSE": {
+          "mean": 13.011958495856643,
+          "std": 0.7718154112559821
+        },
+        "R2": {
+          "mean": 0.20819125755067894,
+          "std": 0.02062328452747878
+        },
+        "bias": {
+          "mean": -2.0289171857680817,
+          "std": 0.4261021427822703
+        },
+        "WAPE_%": {
+          "mean": 36.45210709729695,
+          "std": 1.3122965270197766
+        },
+        "MedianAE": {
+          "mean": 1.9356259871563561,
+          "std": 0.1380175724591746
+        },
+        "MAPE_%": {
+          "mean": 28.824722504696194,
+          "std": 0.8114983640071942
+        }
+      },
+      "Baseline: global median": {
+        "MAE": {
+          "mean": 8.12691283721272,
+          "std": 0.44723352323495225
+        },
+        "RMSE": {
+          "mean": 15.109893098023601,
+          "std": 0.8176581063790935
+        },
+        "R2": {
+          "mean": -0.06807467167917486,
+          "std": 0.019249427686299007
+        },
+        "bias": {
+          "mean": -3.800558800391654,
+          "std": 0.6747759620989612
+        },
+        "WAPE_%": {
+          "mean": 58.99579928300002,
+          "std": 0.6369516493014762
+        },
+        "MedianAE": {
+          "mean": 5.112500000000001,
+          "std": 0.10661022812441939
+        },
+        "MAPE_%": {
+          "mean": 83.99404094137836,
+          "std": 2.317601858101437
+        }
+      },
+      "Baseline: median by user x bike": {
+        "MAE": {
+          "mean": 7.910968406129132,
+          "std": 0.40565117257009636
+        },
+        "RMSE": {
+          "mean": 14.708596337712443,
+          "std": 0.7438600584068963
+        },
+        "R2": {
+          "mean": -0.012316333302634042,
+          "std": 0.011336795475630872
+        },
+        "bias": {
+          "mean": -3.5382437644429525,
+          "std": 0.5122918512851337
+        },
+        "WAPE_%": {
+          "mean": 57.43600698004005,
+          "std": 0.459046007072507
+        },
+        "MedianAE": {
+          "mean": 4.933333333333334,
+          "std": 0.13123346456686347
+        },
+        "MAPE_%": {
+          "mean": 80.21878853467915,
+          "std": 1.4900024060314112
+        }
+      },
+      "Lasso": {
+        "MAE": {
+          "mean": 5.02571884313964,
+          "std": 0.4203026432333737
+        },
+        "RMSE": {
+          "mean": 12.625190978192624,
+          "std": 0.7314820867945785
+        },
+        "R2": {
+          "mean": 0.25450737720536454,
+          "std": 0.017167623938848263
+        },
+        "bias": {
+          "mean": -1.765293066451333,
+          "std": 0.3225216908508504
+        },
+        "WAPE_%": {
+          "mean": 36.44803643359863,
+          "std": 1.514266922887435
+        },
+        "MedianAE": {
+          "mean": 2.352502856378301,
+          "std": 0.1787502909756267
+        },
+        "MAPE_%": {
+          "mean": 39.206153863444925,
+          "std": 1.9966269926679738
+        }
+      },
+      "Linear (OLS)": {
+        "MAE": {
+          "mean": 5.0253518628229505,
+          "std": 0.4211464952720772
+        },
+        "RMSE": {
+          "mean": 12.62530594158573,
+          "std": 0.7302849685237974
+        },
+        "R2": {
+          "mean": 0.254489266952752,
+          "std": 0.017049596034773698
+        },
+        "bias": {
+          "mean": -1.767483669051253,
+          "std": 0.3202523547181493
+        },
+        "WAPE_%": {
+          "mean": 36.445156275300455,
+          "std": 1.5204827936472756
+        },
+        "MedianAE": {
+          "mean": 2.3509411431170317,
+          "std": 0.18184228922273865
+        },
+        "MAPE_%": {
+          "mean": 39.18379774760642,
+          "std": 2.043514137767029
+        }
+      },
+      "Poly2+Ridge": {
+        "MAE": {
+          "mean": 5.13728849683439,
+          "std": 0.4253643430098475
+        },
+        "RMSE": {
+          "mean": 12.75858649164123,
+          "std": 0.747324382200164
+        },
+        "R2": {
+          "mean": 0.23869395451643344,
+          "std": 0.01889944189612053
+        },
+        "bias": {
+          "mean": -1.6716294454949512,
+          "std": 0.21594229092574024
+        },
+        "WAPE_%": {
+          "mean": 37.256998054846,
+          "std": 1.4567006015221668
+        },
+        "MedianAE": {
+          "mean": 2.3804746845638185,
+          "std": 0.16301552123978985
+        },
+        "MAPE_%": {
+          "mean": 40.125517099065696,
+          "std": 1.4163915529650069
+        }
+      },
+      "Ridge": {
+        "MAE": {
+          "mean": 5.025338391427889,
+          "std": 0.4211411677347694
+        },
+        "RMSE": {
+          "mean": 12.625311755533994,
+          "std": 0.730286802500182
+        },
+        "R2": {
+          "mean": 0.2544885872774322,
+          "std": 0.017049653157966256
+        },
+        "bias": {
+          "mean": -1.7675455339155803,
+          "std": 0.3202641287627646
+        },
+        "WAPE_%": {
+          "mean": 36.445059497378175,
+          "std": 1.5204417235642178
+        },
+        "MedianAE": {
+          "mean": 2.3509283324722907,
+          "std": 0.1817964155138998
+        },
+        "MAPE_%": {
+          "mean": 39.18410043653887,
+          "std": 2.043461959449779
+        }
+      }
+    },
+    "best_baseline": "Baseline: distance x median pace",
+    "skill_mae_vs_best_baseline": 0.00014396397593918753,
+    "interval_80": {
+      "q10_log": -0.4800013186856588,
+      "q90_log": 0.46141521255971,
+      "empirical_coverage_last_block": 0.7772767353863669
+    },
+    "assumptions": [
+      "Distance is straight-line from the ACTUAL end location, so the model assumes the destination is known at prediction time.",
+      "Weather features are observed at trip start (a stand-in for a forecast).",
+      "Random 1M-row sample of eligible trips (distance and weather available, non-staff); trips without end coordinates are excluded.",
+      "Coefficients are associations; duration is dominated by unobserved behaviour (sightseeing vs commuting)."
+    ]
+  },
+  "demand_model": {
+    "h1": {
+      "target": "trips starting at station in the hour",
+      "horizon_hours": 1,
+      "n_stations": 150,
+      "n_rows": 82800,
+      "folds": [
+        {
+          "fold": 1,
+          "test_start": "2024-06-19 12:00:00",
+          "test_end": "2024-06-22 08:00:00",
+          "n_train": 41250,
+          "n_test": 10350
+        },
+        {
+          "fold": 2,
+          "test_start": "2024-06-22 09:00:00",
+          "test_end": "2024-06-25 05:00:00",
+          "n_train": 51600,
+          "n_test": 10350
+        },
+        {
+          "fold": 3,
+          "test_start": "2024-06-25 06:00:00",
+          "test_end": "2024-06-28 02:00:00",
+          "n_train": 61950,
+          "n_test": 10350
+        },
+        {
+          "fold": 4,
+          "test_start": "2024-06-28 03:00:00",
+          "test_end": "2024-06-30 23:00:00",
+          "n_train": 72300,
+          "n_test": 10350
+        }
+      ],
+      "summary": {
+        "Baseline: persistence (lag h)": {
+          "MAE": {
+            "mean": 5.291328502415459,
+            "std": 0.7464465939893885
+          },
+          "RMSE": {
+            "mean": 7.833616993594829,
+            "std": 1.203925605621796
+          },
+          "R2": {
+            "mean": 0.5386615498700581,
+            "std": 0.054803531391166525
+          },
+          "bias": {
+            "mean": 0.052246376811594206,
+            "std": 0.07663796598734023
+          },
+          "WAPE_%": {
+            "mean": 42.238413639552576,
+            "std": 1.4301057677774696
+          },
+          "sMAPE_%": {
+            "mean": 58.87459091814201,
+            "std": 1.6135163773837724
+          },
+          "PoissonDeviance": {
+            "mean": 5.803261380075071,
+            "std": 0.5367152138989694
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        },
+        "Baseline: same hour last week": {
+          "MAE": {
+            "mean": 5.240265700483092,
+            "std": 0.41106443702648077
+          },
+          "RMSE": {
+            "mean": 7.899295162615116,
+            "std": 0.6798699236879547
+          },
+          "R2": {
+            "mean": 0.5246048870484002,
+            "std": 0.07031667785226209
+          },
+          "bias": {
+            "mean": 0.2613768115942029,
+            "std": 0.5631213368009433
+          },
+          "WAPE_%": {
+            "mean": 42.216375675254525,
+            "std": 4.956298247498531
+          },
+          "sMAPE_%": {
+            "mean": 58.98807795616905,
+            "std": 5.655572712945054
+          },
+          "PoissonDeviance": {
+            "mean": 6.4014710631337515,
+            "std": 1.15532519727493
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        },
+        "Baseline: same hour yesterday": {
+          "MAE": {
+            "mean": 5.59024154589372,
+            "std": 0.5320469386608919
+          },
+          "RMSE": {
+            "mean": 8.396740939352545,
+            "std": 0.9432240276099995
+          },
+          "R2": {
+            "mean": 0.44021732020960697,
+            "std": 0.18399348522507927
+          },
+          "bias": {
+            "mean": 0.4515458937198067,
+            "std": 1.239272392228882
+          },
+          "WAPE_%": {
+            "mean": 45.40602096490424,
+            "std": 8.47261482295372
+          },
+          "sMAPE_%": {
+            "mean": 59.98342310841467,
+            "std": 5.728600084901072
+          },
+          "PoissonDeviance": {
+            "mean": 7.005405042245485,
+            "std": 0.6819267634308347
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        },
+        "Baseline: station mean": {
+          "MAE": {
+            "mean": 8.619627318959278,
+            "std": 0.5196347063787723
+          },
+          "RMSE": {
+            "mean": 11.175971990656038,
+            "std": 1.2042533432679272
+          },
+          "R2": {
+            "mean": 0.05835354867947731,
+            "std": 0.013201185453776975
+          },
+          "bias": {
+            "mean": 0.0519394576635312,
+            "std": 1.533763920638427
+          },
+          "WAPE_%": {
+            "mean": 69.3170938658725,
+            "std": 5.267079450859068
+          },
+          "sMAPE_%": {
+            "mean": 80.31769657185615,
+            "std": 4.161572833291174
+          },
+          "PoissonDeviance": {
+            "mean": 9.86175521283496,
+            "std": 0.9282451354288438
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        },
+        "Baseline: station x hour-of-week mean": {
+          "MAE": {
+            "mean": 4.77999194847021,
+            "std": 0.5313372393838663
+          },
+          "RMSE": {
+            "mean": 7.1916860818623345,
+            "std": 0.9013460329846706
+          },
+          "R2": {
+            "mean": 0.5965790263694785,
+            "std": 0.12144214481961135
+          },
+          "bias": {
+            "mean": 0.4527858293075684,
+            "std": 0.6115860911086868
+          },
+          "WAPE_%": {
+            "mean": 38.62888597611282,
+            "std": 6.450877179956129
+          },
+          "sMAPE_%": {
+            "mean": 56.60547081568657,
+            "std": 6.392428222040031
+          },
+          "PoissonDeviance": {
+            "mean": 4.401091880376256,
+            "std": 1.5278757720877292
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        },
+        "Linear (OLS)": {
+          "MAE": {
+            "mean": 4.130289269476673,
+            "std": 0.291094807384109
+          },
+          "RMSE": {
+            "mean": 5.995284854679916,
+            "std": 0.5348759941893662
+          },
+          "R2": {
+            "mean": 0.7280137642822735,
+            "std": 0.016536313030333528
+          },
+          "bias": {
+            "mean": -0.03501942787770973,
+            "std": 0.41147202152280293
+          },
+          "WAPE_%": {
+            "mean": 33.19203183693445,
+            "std": 2.414832199871718
+          },
+          "sMAPE_%": {
+            "mean": 54.68158779793912,
+            "std": 5.139869572474274
+          },
+          "PoissonDeviance": {
+            "mean": 3.003178279838025,
+            "std": 0.2785971981999402
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        },
+        "Ridge": {
+          "MAE": {
+            "mean": 4.130193529407978,
+            "std": 0.29107741516516017
+          },
+          "RMSE": {
+            "mean": 5.995136607079283,
+            "std": 0.5349093823123936
+          },
+          "R2": {
+            "mean": 0.7280275621390208,
+            "std": 0.01653325204100644
+          },
+          "bias": {
+            "mean": -0.03451276175874206,
+            "std": 0.4115990439087642
+          },
+          "WAPE_%": {
+            "mean": 33.19129913825349,
+            "std": 2.415304151547919
+          },
+          "sMAPE_%": {
+            "mean": 54.69124553266329,
+            "std": 5.13895489404904
+          },
+          "PoissonDeviance": {
+            "mean": 3.001997140767341,
+            "std": 0.27879438863402844
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        }
+      },
+      "best_baseline": "Baseline: station x hour-of-week mean",
+      "skill_mae_vs_best_baseline": 0.13592129149955312,
+      "station_selection_cutoff": "2024-06-15 23:00:00",
+      "capacity_note": "capacity feature not used",
+      "assumptions": [
+        "Forecast origin is 1h before the target hour; all demand lags/rolling means use only data at or before the origin.",
+        "Weather is the OBSERVED value at the target hour, standing in for a perfect weather forecast; real forecast error would reduce accuracy.",
+        "Station universe = top 150 by trips in the first 50% of the period (selection is leakage-free); stations opened later are not modelled.",
+        "Backtest gap between train end and test start = 1h.",
+        "Demand counts trips STARTED (observed rentals), not unmet demand; empty stations censor demand.",
+        "Zeros are kept (grid is complete); sMAPE (0/0=0), WAPE and Poisson deviance are reported because MAPE is undefined at 0."
+      ]
+    },
+    "h24": {
+      "target": "trips starting at station in the hour",
+      "horizon_hours": 24,
+      "n_stations": 150,
+      "n_rows": 82800,
+      "folds": [
+        {
+          "fold": 1,
+          "test_start": "2024-06-19 12:00:00",
+          "test_end": "2024-06-22 08:00:00",
+          "n_train": 37800,
+          "n_test": 10350
+        },
+        {
+          "fold": 2,
+          "test_start": "2024-06-22 09:00:00",
+          "test_end": "2024-06-25 05:00:00",
+          "n_train": 48150,
+          "n_test": 10350
+        },
+        {
+          "fold": 3,
+          "test_start": "2024-06-25 06:00:00",
+          "test_end": "2024-06-28 02:00:00",
+          "n_train": 58500,
+          "n_test": 10350
+        },
+        {
+          "fold": 4,
+          "test_start": "2024-06-28 03:00:00",
+          "test_end": "2024-06-30 23:00:00",
+          "n_train": 68850,
+          "n_test": 10350
+        }
+      ],
+      "summary": {
+        "Baseline: persistence (lag h)": {
+          "MAE": {
+            "mean": 5.59024154589372,
+            "std": 0.5320469386608919
+          },
+          "RMSE": {
+            "mean": 8.396740939352545,
+            "std": 0.9432240276099995
+          },
+          "R2": {
+            "mean": 0.4402173202096069,
+            "std": 0.18399348522507927
+          },
+          "bias": {
+            "mean": 0.4515458937198067,
+            "std": 1.239272392228882
+          },
+          "WAPE_%": {
+            "mean": 45.40602096490424,
+            "std": 8.47261482295372
+          },
+          "sMAPE_%": {
+            "mean": 59.98342310841467,
+            "std": 5.728600084901078
+          },
+          "PoissonDeviance": {
+            "mean": 7.005405042245485,
+            "std": 0.6819267634308347
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        },
+        "Baseline: same hour last week": {
+          "MAE": {
+            "mean": 5.240265700483092,
+            "std": 0.41106443702648077
+          },
+          "RMSE": {
+            "mean": 7.899295162615116,
+            "std": 0.6798699236879547
+          },
+          "R2": {
+            "mean": 0.5246048870484002,
+            "std": 0.07031667785226214
+          },
+          "bias": {
+            "mean": 0.2613768115942029,
+            "std": 0.5631213368009433
+          },
+          "WAPE_%": {
+            "mean": 42.216375675254525,
+            "std": 4.956298247498531
+          },
+          "sMAPE_%": {
+            "mean": 58.98807795616905,
+            "std": 5.655572712945054
+          },
+          "PoissonDeviance": {
+            "mean": 6.4014710631337515,
+            "std": 1.1553251972749308
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        },
+        "Baseline: station mean": {
+          "MAE": {
+            "mean": 8.618954706261873,
+            "std": 0.5193545785054436
+          },
+          "RMSE": {
+            "mean": 11.181424018213256,
+            "std": 1.2096152952925325
+          },
+          "R2": {
+            "mean": 0.05749952898492372,
+            "std": 0.012209347545059285
+          },
+          "bias": {
+            "mean": 0.014703742067020908,
+            "std": 1.5209967077443602
+          },
+          "WAPE_%": {
+            "mean": 69.30584406530768,
+            "std": 5.151205563820499
+          },
+          "sMAPE_%": {
+            "mean": 80.35167982244562,
+            "std": 4.1216654613968995
+          },
+          "PoissonDeviance": {
+            "mean": 9.874715884098807,
+            "std": 0.9324201006675987
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        },
+        "Baseline: station x hour-of-week mean": {
+          "MAE": {
+            "mean": 4.779991948470209,
+            "std": 0.5313372393838659
+          },
+          "RMSE": {
+            "mean": 7.1916860818623345,
+            "std": 0.9013460329846706
+          },
+          "R2": {
+            "mean": 0.5965790263694785,
+            "std": 0.12144214481961141
+          },
+          "bias": {
+            "mean": 0.4527858293075684,
+            "std": 0.6115860911086868
+          },
+          "WAPE_%": {
+            "mean": 38.62888597611282,
+            "std": 6.4508771799561275
+          },
+          "sMAPE_%": {
+            "mean": 56.60547081568658,
+            "std": 6.392428222040029
+          },
+          "PoissonDeviance": {
+            "mean": 4.401091880376256,
+            "std": 1.5278757720877294
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        },
+        "Linear (OLS)": {
+          "MAE": {
+            "mean": 4.55042550539371,
+            "std": 0.3219667413971087
+          },
+          "RMSE": {
+            "mean": 6.635565743112727,
+            "std": 0.6359759420817737
+          },
+          "R2": {
+            "mean": 0.6652545564536894,
+            "std": 0.047455348242673036
+          },
+          "bias": {
+            "mean": 0.1383227859660611,
+            "std": 0.32302111172271714
+          },
+          "WAPE_%": {
+            "mean": 36.60466950250175,
+            "std": 3.3413919572238555
+          },
+          "sMAPE_%": {
+            "mean": 57.89746389871872,
+            "std": 5.019980424529603
+          },
+          "PoissonDeviance": {
+            "mean": 3.7128624104367076,
+            "std": 0.5005699849057778
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        },
+        "Ridge": {
+          "MAE": {
+            "mean": 4.55015751301807,
+            "std": 0.3218648346607706
+          },
+          "RMSE": {
+            "mean": 6.635256265558704,
+            "std": 0.6360108966486564
+          },
+          "R2": {
+            "mean": 0.6652867457739728,
+            "std": 0.04744844281483728
+          },
+          "bias": {
+            "mean": 0.13875950754791735,
+            "std": 0.32343360333028437
+          },
+          "WAPE_%": {
+            "mean": 36.60262849068906,
+            "std": 3.3423667188227277
+          },
+          "sMAPE_%": {
+            "mean": 57.8860885847801,
+            "std": 5.0197951934606655
+          },
+          "PoissonDeviance": {
+            "mean": 3.710321891505416,
+            "std": 0.5008393091380409
+          },
+          "zero_share": {
+            "mean": 0.11536231884057971,
+            "std": 0.02097827593431042
+          }
+        }
+      },
+      "best_baseline": "Baseline: station x hour-of-week mean",
+      "skill_mae_vs_best_baseline": 0.048026533423339735,
+      "station_selection_cutoff": "2024-06-15 23:00:00",
+      "capacity_note": "capacity feature not used",
+      "assumptions": [
+        "Forecast origin is 24h before the target hour; all demand lags/rolling means use only data at or before the origin.",
+        "Weather is the OBSERVED value at the target hour, standing in for a perfect weather forecast; real forecast error would reduce accuracy.",
+        "Station universe = top 150 by trips in the first 50% of the period (selection is leakage-free); stations opened later are not modelled.",
+        "Backtest gap between train end and test start = 24h.",
+        "Demand counts trips STARTED (observed rentals), not unmet demand; empty stations censor demand.",
+        "Zeros are kept (grid is complete); sMAPE (0/0=0), WAPE and Poisson deviance are reported because MAPE is undefined at 0."
+      ]
+    }
+  }
+}

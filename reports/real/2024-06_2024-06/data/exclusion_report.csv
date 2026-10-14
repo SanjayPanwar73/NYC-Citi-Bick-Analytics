@@ -1,0 +1,18 @@
+step,rows,pct_of_parsed
+csv_data_lines (all files),4783576,100.0
+"unparsed_or_malformed_lines (approx, ignore_errors)",0,0.0
+rows_parsed,4783576,100.0
+excluded: unparseable_timestamp,0,0.0
+excluded: outside_requested_range,1341,0.028
+excluded: negative_duration,0,0.0
+excluded: duration_below_min,29,0.001
+excluded: duration_above_max,5053,0.106
+excluded: missing_start_coords,1718,0.036
+excluded: start_outside_nyc_box,0,0.0
+excluded: end_outside_nyc_box,20,0.0
+excluded: implausible_speed,14,0.0
+excluded: duplicate_ride_id,0,0.0
+FINAL rows kept,4775401,99.829
+info (kept): missing_end_coords,10185,0.213
+info (kept): missing_start_station_id,0,0.0
+info (kept): missing_end_station_id,10185,0.213

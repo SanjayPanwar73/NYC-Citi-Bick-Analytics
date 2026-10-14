@@ -808,4 +808,7 @@ def tab_about(c):
 
 for tab, fn in zip(tabs, (tab_overview, tab_rhythm, tab_stations, tab_weather, tab_models, tab_predict, tab_quality, tab_live, tab_about)):
     with tab:
-        fn(ctx)
+        try:
+            fn(ctx)
+        except Exception as e:                      # noqa: BLE001 - isolate failures per tab
+            st.error(f"This tab failed ({type(e).__name__}: {e}). The other tabs are unaffected.")

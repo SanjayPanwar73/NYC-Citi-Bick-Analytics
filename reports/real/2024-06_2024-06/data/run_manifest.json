@@ -1,0 +1,123 @@
+{
+  "mode": "real",
+  "is_synthetic": false,
+  "data_source": "Citi Bike official trip data, https://s3.amazonaws.com/tripdata/",
+  "start_month": "2024-06",
+  "end_month": "2024-06",
+  "run_tag": "2024-06_2024-06",
+  "created_at": "2026-10-09T03:39:55+00:00",
+  "environment": {
+    "python": "3.14.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "duckdb": "1.5.6",
+      "pandas": "3.0.6",
+      "numpy": "2.5.2",
+      "pyarrow": "25.0.1",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.18.1",
+      "matplotlib": "3.11.2",
+      "seaborn": "0.13.2",
+      "folium": "0.20.0",
+      "streamlit": "1.65.0",
+      "requests": "2.34.2",
+      "joblib": "1.6.0"
+    }
+  },
+  "stages": {
+    "download": {
+      "archives": {
+        "202406-citibike-tripdata.zip": 936046329
+      },
+      "csv_files": [
+        "202406-citibike-tripdata_1.csv",
+        "202406-citibike-tripdata_2.csv",
+        "202406-citibike-tripdata_3.csv",
+        "202406-citibike-tripdata_4.csv",
+        "202406-citibike-tripdata_5.csv"
+      ],
+      "months_found": [
+        "2024-06"
+      ],
+      "months_missing": [],
+      "completed_at": "2026-10-09T04:05:19+00:00"
+    },
+    "cleaning": {
+      "rules": {
+        "min_duration_s": 60,
+        "max_duration_s": 21600,
+        "max_speed_kmh": 40,
+        "nyc_box_lat": [
+          40.45,
+          41.0
+        ],
+        "nyc_box_lon": [
+          -74.3,
+          -73.6
+        ],
+        "missing_end_coords": "kept, flagged, excluded from distance/speed/duration model",
+        "missing_start_coords": "excluded"
+      },
+      "csv_files": [
+        "202406-citibike-tripdata_1.csv",
+        "202406-citibike-tripdata_2.csv",
+        "202406-citibike-tripdata_3.csv",
+        "202406-citibike-tripdata_4.csv",
+        "202406-citibike-tripdata_5.csv"
+      ],
+      "rows_parsed": 4783576,
+      "rows_final": 4775401,
+      "duplicates_removed": 0,
+      "coverage": {
+        "rows": 4775401,
+        "first_trip": "2024-06-01 00:00:00.142000",
+        "last_trip": "2024-06-30 23:57:45.666000",
+        "rows_by_month": {
+          "2024-06": 4775401
+        }
+      },
+      "completed_at": "2026-10-09T04:39:16+00:00"
+    },
+    "weather": {
+      "file": "weather_2024-06_2024-06.parquet",
+      "source": "open-meteo archive",
+      "hours_expected": 720,
+      "hours_present": 720,
+      "missing_share": 0.0,
+      "covered_through": "2024-06-30",
+      "lat": 40.71,
+      "lon": -74.0,
+      "completed_at": "2026-10-09T04:39:20+00:00"
+    },
+    "features": {
+      "rows": 4775401,
+      "no_weather_share": 0.0,
+      "completed_at": "2026-10-09T08:43:28+00:00"
+    },
+    "eda": {
+      "n_days": 30,
+      "rows": 4775401,
+      "adjusted_weather_done": true,
+      "completed_at": "2026-10-14T07:26:21+00:00"
+    },
+    "modeling": {
+      "results": "model_results.json",
+      "n_folds": 4,
+      "horizons": [
+        1,
+        24
+      ],
+      "completed_at": "2026-10-09T08:49:12+00:00"
+    },
+    "interpretation": {
+      "file": "INTERPRETATION.md",
+      "completed_at": "2026-10-09T08:49:21+00:00"
+    },
+    "station_info": {
+      "rows": 2519,
+      "snapshot_utc": "2026-10-13T07:02:34.358340+00:00",
+      "caveat": "current capacity snapshot, not capacity at trip time",
+      "completed_at": "2026-10-13T07:02:34+00:00"
+    }
+  }
+}

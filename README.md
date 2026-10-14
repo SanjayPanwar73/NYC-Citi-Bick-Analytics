@@ -32,6 +32,8 @@ what-if curves) · **Data quality** (exclusion waterfall, coverage, pipeline log
 The run selector keeps real and synthetic runs apart; synthetic runs get a red banner. Charts are error-isolated: if one fails, a notice appears and the rest still render.
 For the interactive member/casual charts rebuild EDA once: `python run_all.py phase2 --force`.
 
+**Deploying the dashboard online:** see `DEPLOY.md` (Streamlit Community Cloud, free). Data attribution: Citi Bike / NYC bike share trip data.
+
 ## How real and synthetic data are kept apart
 | | real | sample (synthetic) |
 |---|---|---|

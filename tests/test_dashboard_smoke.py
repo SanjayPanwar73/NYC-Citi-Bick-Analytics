@@ -225,6 +225,14 @@ class DashboardSmoke(unittest.TestCase):
         self.assertIn("Predicted typical duration", page)                    # later tabs still rendered
         self.assertEqual(st.calls.get("altair_chart", 0), 0)
 
+    def test_unreadable_model_file_only_breaks_the_predict_tab(self):
+        root = tempfile.mkdtemp(); D = make_run(root)
+        (D / "duration_model.joblib").write_bytes(b"not a pickle")            # e.g. sklearn version mismatch on a server
+        st = run_dashboard(root)
+        page = "\n".join(st.html)
+        self.assertGreaterEqual(st.calls.get("error", 0), 1)
+        self.assertIn("Why rows were excluded", page)                         # tabs AFTER Predict still rendered
+
     def test_unfinished_run_shows_empty_states_not_errors(self):
         root = tempfile.mkdtemp(); make_run(root, full=False)                # manifest only (eda/modeling not done)
         page = "\n".join(run_dashboard(root).html)
