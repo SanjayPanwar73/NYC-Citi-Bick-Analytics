@@ -1,5 +1,5 @@
 # NYC Citi Bike - trips, weather, and linear-regression forecasting
-
+# Live Linl :- https://nyc-citi-bick-analytics.streamlit.app/
 > **Status:** the code is complete and unit-tested at the Python level. **No real-data run has been completed yet**
 > (the first real download failed with an invalid archive). Any figures/metrics produced by `python run_all.py sample`
 > are **synthetic** and are written to separate, watermarked folders. See `AUDIT.md` for what was fixed and what is unverified.
