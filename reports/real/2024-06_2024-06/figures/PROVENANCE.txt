@@ -1,0 +1,2 @@
+Real Citi Bike data - see run_manifest.json for coverage.
+run: real/2024-06_2024-06

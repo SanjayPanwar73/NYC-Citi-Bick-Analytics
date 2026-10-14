@@ -1,0 +1,3 @@
+6 files to fetch: ['202401-citibike-tripdata.zip', '202402-citibike-tripdata.zip', '202403-citibike-tripdata.zip', '202404-citibike-tripdata.zip', '202405-citibike-tripdata.zip', '202406-citibike-tripdata.zip']
+
+========== download_data.py ==========

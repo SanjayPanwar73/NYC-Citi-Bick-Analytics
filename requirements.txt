@@ -1,0 +1,15 @@
+# Version RANGES (tested versions below). After your first successful run, freeze exactly what worked:
+#   python -m pip freeze > requirements-lock.txt      and commit it.
+# Recommended Python: 3.10-3.13 (3.14 wheels for some packages may lag).
+duckdb>=1.0,<2
+pandas>=2.1,<4
+pyarrow>=14,<25
+numpy>=1.26,<3
+requests>=2.31,<3
+scikit-learn>=1.3,<2
+scipy>=1.11,<2
+matplotlib>=3.8,<4
+seaborn>=0.13,<1
+folium>=0.15,<1
+streamlit>=1.40,<2
+joblib>=1.3,<2

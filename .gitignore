@@ -1,0 +1,18 @@
+# data - never commit raw or processed trip data
+data/
+duckdb_tmp/
+*.parquet
+*.joblib
+*.part
+*.corrupt
+# python / tooling
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.DS_Store
+# synthetic-run reports are test artifacts, not results
+reports/sample/
+# keep: reports/real/**/figures and *.md (portfolio material); aggregates (*.csv/json) are small
